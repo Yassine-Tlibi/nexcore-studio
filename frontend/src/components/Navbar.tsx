@@ -2,6 +2,8 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X } from 'lucide-react';
+import Link from 'next/link';
+import MagneticButton from './MagneticButton';
 
 /**
  * Navbar Component
@@ -28,13 +30,25 @@ export default function Navbar() {
           NEXCORE.
         </motion.div>
         
-        <button 
-          onClick={() => setIsOpen(!isOpen)}
-          aria-label={isOpen ? "Fermer le menu" : "Ouvrir le menu"}
-          className="p-3 bg-white/5 hover:bg-white/10 rounded-full transition-colors relative z-[70]"
-        >
-          {isOpen ? <X size={24} /> : <Menu size={24} />}
-        </button>
+        <div className="flex items-center gap-6">
+          <div className="hidden md:block">
+            <MagneticButton>
+              <Link 
+                href="/waitlist" 
+                className="bg-accent text-white px-6 py-2 rounded-full font-syne font-bold transition-transform hover:scale-105"
+              >
+                Join Waitlist
+              </Link>
+            </MagneticButton>
+          </div>
+          <button 
+            onClick={() => setIsOpen(!isOpen)}
+            aria-label={isOpen ? "Fermer le menu" : "Ouvrir le menu"}
+            className="p-3 bg-white/5 hover:bg-white/10 rounded-full transition-colors relative z-[70]"
+          >
+            {isOpen ? <X size={24} /> : <Menu size={24} />}
+          </button>
+        </div>
       </div>
 
       <AnimatePresence>

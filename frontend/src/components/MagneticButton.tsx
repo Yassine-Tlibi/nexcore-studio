@@ -2,7 +2,7 @@
 import { useRef, useEffect } from 'react';
 import gsap from 'gsap';
 
-export default function MagneticButton({ children }: { children: React.ReactElement }) {
+export default function MagneticButton({ children, onClick }: { children: React.ReactElement, onClick?: () => void }) {
   const container = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -29,5 +29,5 @@ export default function MagneticButton({ children }: { children: React.ReactElem
     return () => window.removeEventListener("mousemove", handleMouseMove);
   }, []);
 
-  return <div ref={container}>{children}</div>;
+  return <div ref={container} onClick={onClick}>{children}</div>;
 }

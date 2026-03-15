@@ -1,3 +1,4 @@
+import Link from 'next/link';
 'use client';
 import { useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
@@ -123,9 +124,11 @@ export default function Hero() {
           transition={{ delay: 1.2, duration: 0.5, type: 'spring' }}
         >
           <MagneticButton>
-            <button className="bg-accent text-background px-12 py-6 rounded-full font-bold uppercase tracking-widest text-sm hover:shadow-[0_0_30px_rgba(79,142,247,0.5)] transition-shadow">
-              Démarrer un projet
-            </button>
+            <Link href="/waitlist">
+              <span className="bg-accent text-background px-12 py-6 rounded-full font-bold uppercase tracking-widest text-sm hover:shadow-[0_0_30px_rgba(79,142,247,0.5)] transition-shadow inline-block">
+                Join the Waitlist
+              </span>
+            </Link>
           </MagneticButton>
         </motion.div>
       </div>
