@@ -4,6 +4,7 @@ import React from "react";
 import SmoothScroll from "../components/hooks/SmoothScroll";
 import Preloader from "../components/Preloader";
 import CustomCursor from "../components/CustomCursor";
+import { Analytics } from "@vercel/analytics/next";
 
 export const metadata: Metadata = {
   title: "NexCore Studio | Next-Gen Web & AI Strategy",
@@ -23,6 +24,7 @@ export default function RootLayout({
         <SmoothScroll>
           {children}
         </SmoothScroll>
+        <Analytics />
       </body>
     </html>
   );
